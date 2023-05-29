@@ -39,6 +39,9 @@ do {
             opcionUno++
             break;
         case 2:
+            let radio = Number(prompt('Ingrese el radio: (en cm)'))
+            let area = 3.1416*(radio**2)
+            console.log('El área de la circunferencia es: ' + parseInt(area)+'cm');
             opcionDos++
             break;
         case 3:
