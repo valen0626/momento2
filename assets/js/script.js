@@ -45,6 +45,20 @@ do {
             opcionDos++
             break;
         case 3:
+            let ladoUno = Number(prompt('Ingrese la medida un lado: (en cm)'))
+            let ladoDos = Number(prompt('Ingrese la medida un lado: (en cm)'))
+            let ladoTres = Number(prompt('Ingrese la medida un lado: (en cm)'))
+            if (ladoUno!= ladoDos && ladoUno!=ladoTres && ladoDos!=ladoTres) {
+                console.log(`Es un triángulo escaleno`);
+            } else if (ladoUno==ladoDos && ladoUno!=ladoTres) {
+                console.log(`Es un triángulo isósceles`); 
+            } else if (ladoUno==ladoTres && ladoUno!=ladoDos) {
+                console.log(`Es un triángulo isósceles`);
+            }else if (ladoDos==ladoTres && ladoDos!=ladoUno) {
+                console.log(`Es un triángulo isósceles`);
+            }else if (ladoUno== ladoDos && ladoUno==ladoTres && ladoDos==ladoTres) {
+                console.log(`Es un triángulo equilatero`);
+            }
             opcionTres++
             break;
         case 4:
