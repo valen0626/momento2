@@ -5,6 +5,37 @@ do {
     menu = Number(prompt('Menu\n1- Ordenar números\n2- Área de una circunferencia\n3- Tipos de triángulo\n4- Números amigos\n5- Génerar valor de compra\n6- Nota de un estudiante\n7- Cerrar'))
     switch (menu) {
         case 1:
+            let numeroUno = Number(prompt('Ingrese un número: '))
+            let numeroDos = Number(prompt('Ingrese un número: '))
+            let numeroTres = Number(prompt('Ingrese un número: '))
+            if (numeroUno < numeroDos) {
+                if (numeroUno < numeroTres) {
+                    if (numeroDos < numeroTres) {
+                        console.log(`menor a mayor:\n${numeroUno}\n${numeroDos}\n${numeroTres}`);
+                        console.log(`mayor a menor:\n${numeroTres}\n${numeroDos}\n${numeroUno}`);
+                    } else {
+                        console.log(`menor a mayor:\n${numeroUno}\n${numeroTres}\n${numeroDos}`);
+                        console.log(`mayor a menor:\n${numeroDos}\n${numeroTres}\n${numeroUno}`);
+                    }
+                }
+            } else if (numeroDos < numeroTres) {
+                if (numeroUno < numeroTres) {
+                    console.log(`menor a mayor:\n${numeroDos}\n${numeroUno}\n${numeroTres}`);
+                    console.log(`mayor a menor:\n${numeroTres}\n${numeroUno}\n${numeroDos}`);
+                } else {
+                    console.log(`menor a mayor:\n${numeroDos}\n${numeroTres}\n${numeroUno}`);
+                    console.log(`mayor a menor:\n${numeroUno}\n${numeroTres}\n${numeroDos}`);
+                }
+            } else if (numeroTres<numeroUno) {
+                if (numeroUno<numeroDos) {
+                    console.log(`menor a mayor:\n${numeroTres}\n${numeroUno}\n${numeroDos}`);
+                    console.log(`mayor a menor:\n${numeroDos}\n${numeroUno}\n${numeroTres}`);
+                }else{
+                    console.log(`menor a mayor:\n${numeroTres}\n${numeroDos}\n${numeroUno}`);
+                    console.log(`mayor a menor:\n${numeroUno}\n${numeroDos}\n${numeroTres}`);
+                }
+            }
+
             opcionUno++
             break;
         case 2:
