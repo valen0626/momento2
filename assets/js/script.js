@@ -1,7 +1,7 @@
 let opcionUno = 0, opcionDos = 0, opcionTres = 0, opcionCuatro = 0, opcionCinco = 0, opcionSeis = 0;
-let masVeces = 0, menosVeces = 0, ejecuciones = 0;
+let masVeces = 0, menosVeces = 0;
 let menu;
-
+let ejecuciones = []
 function ordenarNumeros() {
     let numeroUno = Number(prompt('Ingrese un número: '))
     let numeroDos = Number(prompt('Ingrese un número: '))
@@ -93,10 +93,38 @@ const compra = () => {
             valorCompra -= descuento
             console.log(`!Se le descuenta el 10% sobre la compra¡`);
         }
-    }  
+    }
     console.log(`El valor del iva es: ${iva} \nEl valor total es: ${valorCompra}`);
 }
 
+const notaEstudiante = () => {
+    let notaUno = Number(prompt('Ingrese la primera nota: '))
+    let notaDos = Number(prompt('Ingrese la segunda nota: '))
+    let notaTres = Number(prompt('Ingrese la tercera nota: '))
+    let notaCuatro = Number(prompt('Ingrese la cuarta nota: '))
+    let notaFinal = 0;
+
+    if (notaCuatro == 5 && notaUno<=4 && notaDos<=4 && notaTres<=4) {
+        notaUno += 1
+        notaDos += 1
+        notaTres += 1
+    }
+    if (notaUno <= 5 && notaDos <= 5 && notaTres <= 5 && notaCuatro <= 5) {
+        notaUno *= 0.1
+        notaDos *= 0.2
+        notaTres *= 0.3
+        notaCuatro *= 0.4
+        notaFinal = notaUno + notaDos + notaTres + notaCuatro
+    } else {
+        console.log('La nota máxima es 5, ninguna puede excederse.');
+    }
+
+    if (notaFinal>3.5) {
+        console.log(`Ganó con una nota final de: ${notaFinal}`);
+    }else{
+        console.log(`Perdió con una nota final de: ${notaFinal}`);
+    }
+}
 do {
     menu = Number(prompt('Menu\n1- Ordenar números\n2- Área de una circunferencia\n3- Tipos de triángulo\n4- Números amigos\n5- Génerar valor de compra\n6- Nota de un estudiante\n7- Cerrar'))
     switch (menu) {
@@ -121,6 +149,7 @@ do {
             opcionCinco++
             break;
         case 6:
+            notaEstudiante()
             opcionSeis++
             break;
     }
