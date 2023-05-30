@@ -78,6 +78,25 @@ const numerosAmigos = () => {
         console.log(`${primerNumero} y ${segundoNumero} no son números amigos`);
     }
 }
+
+const compra = () => {
+    let valor = Number(prompt('Ingrese el valor del producto: '))
+    let cantidad = Number(prompt('Ingrese la cantidad: '))
+    let valorCompra = valor * cantidad
+    let iva = valorCompra * 0.19
+    valorCompra += iva
+    if (valorCompra > 500000) {
+        valorCompra -= iva
+        console.log(`!Se le devuelve el valor del iva¡`);
+        if (valorCompra > 1000000) {
+            let descuento = valorCompra * 0.1
+            valorCompra -= descuento
+            console.log(`!Se le descuenta el 10% sobre la compra¡`);
+        }
+    }  
+    console.log(`El valor del iva es: ${iva} \nEl valor total es: ${valorCompra}`);
+}
+
 do {
     menu = Number(prompt('Menu\n1- Ordenar números\n2- Área de una circunferencia\n3- Tipos de triángulo\n4- Números amigos\n5- Génerar valor de compra\n6- Nota de un estudiante\n7- Cerrar'))
     switch (menu) {
@@ -98,7 +117,7 @@ do {
             opcionCuatro++
             break;
         case 5:
-
+            compra()
             opcionCinco++
             break;
         case 6:
