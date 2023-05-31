@@ -2,6 +2,7 @@ let opcionUno = 0, opcionDos = 0, opcionTres = 0, opcionCuatro = 0, opcionCinco 
 let masVeces = 0, menosVeces = 0;
 let menu;
 let ejecuciones = []
+let ejercicio = []
 function ordenarNumeros() {
     let numeroUno = Number(prompt('Ingrese un número: '))
     let numeroDos = Number(prompt('Ingrese un número: '))
@@ -85,13 +86,13 @@ const compra = () => {
     let valorCompra = valor * cantidad
     let iva = valorCompra * 0.19
     valorCompra += iva
-    if (valorCompra > 500000) {
-        valorCompra -= iva
-        console.log(`!Se le devuelve el valor del iva¡`);
-        if (valorCompra > 1000000) {
-            let descuento = valorCompra * 0.1
-            valorCompra -= descuento
-            console.log(`!Se le descuenta el 10% sobre la compra¡`);
+    if (valorCompra > 1000000) {
+        let descuento = valorCompra * 0.1
+        valorCompra -= descuento
+        console.log(`!Se le descuenta el 10% sobre la compra¡`);
+        if (valorCompra > 500000) {
+            valorCompra -= iva
+            console.log(`!Se le devuelve el valor del iva¡`);
         }
     }
     console.log(`El valor del iva es: ${iva} \nEl valor total es: ${valorCompra}`);
@@ -104,7 +105,7 @@ const notaEstudiante = () => {
     let notaCuatro = Number(prompt('Ingrese la cuarta nota: '))
     let notaFinal = 0;
 
-    if (notaCuatro == 5 && notaUno<=4 && notaDos<=4 && notaTres<=4) {
+    if (notaCuatro == 5 && notaUno <= 4 && notaDos <= 4 && notaTres <= 4) {
         notaUno += 1
         notaDos += 1
         notaTres += 1
@@ -119,9 +120,9 @@ const notaEstudiante = () => {
         console.log('La nota máxima es 5, ninguna puede excederse.');
     }
 
-    if (notaFinal>3.5) {
+    if (notaFinal > 3.5) {
         console.log(`Ganó con una nota final de: ${notaFinal}`);
-    }else{
+    } else {
         console.log(`Perdió con una nota final de: ${notaFinal}`);
     }
 }
@@ -154,6 +155,30 @@ do {
             break;
     }
 } while (menu >= 1 && menu < 7);
+ejecuciones = [opcionUno, opcionDos, opcionTres, opcionCuatro, opcionCinco, opcionSeis]
+ejercicio = ['Ejercicio 1', 'Ejercicio 2', 'Ejercicio 3', 'Ejercicio 4', 'Ejercicio 5', 'Ejercicio 6']
+function mayorYMenor() {
+    for (var i = 0; i < ejecuciones.length-1; i++) {
+        for (var j = 0; j < ejecuciones.length - 1; j++) {
+            if (ejecuciones[j] < ejecuciones[j + 1]) {
+                let valoresNumero = ejecuciones[j];
+                let valoresEjercicio = ejercicio[j];
+                ejecuciones[j] = ejecuciones[j+1];
+                ejercicio[j] = ejercicio[j+1];
+                ejecuciones[j+1] = valoresNumero;
+                ejercicio[j+1] = valoresEjercicio;
+            }
+        }
+    }
+    if (ejecuciones!=[0,0,0,0,0,0]) {
+        console.log('El ejercicio que más se ejecutó: ' + ejercicio[0]);
+        console.log('El ejercicio que menos se ejecutó: ' + ejercicio[5]); 
+    }
+    
+}
+
+
 
 console.log(`Número de ejecuciones:\nEjercicio 1: ${opcionUno}\nEjercicio 2: ${opcionDos}\nEjercicio 3: ${opcionTres}`);
 console.log(`Ejercicio 4: ${opcionCuatro}\nEjercicio 5: ${opcionCinco}\nEjercicio 6: ${opcionSeis}`);
+console.log(mayorYMenor());
